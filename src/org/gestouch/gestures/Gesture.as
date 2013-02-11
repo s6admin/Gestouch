@@ -599,12 +599,13 @@ package org.gestouch.gestures
 			var y:Number = 0;
 			for (var touchID:String in _touchesMap)
 			{
-				touchLocation = (_touchesMap[int(touchID)] as Touch).location; 
+				touchLocation = (_touchesMap[int(touchID)] as Touch).location;				
 				x += touchLocation.x;
 				y += touchLocation.y;
 			}
 			_centralPoint.x = x / _touchesCount;
 			_centralPoint.y = y / _touchesCount;
+			//trace("Gesture.as touchLocation: " +touchLocation+" centralPoint: " +_centralPoint);
 		}
 		
 		
@@ -613,6 +614,7 @@ package org.gestouch.gestures
 			updateCentralPoint();
 			_location.x = _centralPoint.x;
 			_location.y = _centralPoint.y;
+			//trace("_location: "+_location);
 		}
 		
 		

@@ -134,7 +134,7 @@ package org.gestouch.gestures
 			if (state == GestureState.POSSIBLE)
 			{
 				prevLocationX = _location.x;
-				prevLocationY = _location.y;
+				prevLocationY = _location.y;				
 				updateLocation();
 				
 				// Check if finger moved enough for gesture to be recognized
@@ -160,11 +160,12 @@ package org.gestouch.gestures
 			else if (state == GestureState.BEGAN || state == GestureState.CHANGED)
 			{
 				prevLocationX = _location.x;
-				prevLocationY = _location.y;
+				prevLocationY = _location.y;				
 				updateLocation();
+				//trace("PanGesture onTouchMove: "+prevLocationX+", "+prevLocationY+ " location: " + _location +" touch.time: "+ touch.time + " touch location: " +touch.location);
 				_offsetX = _location.x - prevLocationX;
 				_offsetY = _location.y - prevLocationY;
-				
+				//trace("_offsetX: " +_offsetX+" offsetY: "+_offsetY);				
 				setState(GestureState.CHANGED);
 			}
 		}

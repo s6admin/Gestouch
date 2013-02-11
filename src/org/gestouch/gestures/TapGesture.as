@@ -15,7 +15,7 @@ package org.gestouch.gestures
 	{
 		public var numTouchesRequired:uint = 1;
 		public var numTapsRequired:uint = 1;
-		public var slop:Number = Gesture.DEFAULT_SLOP << 2;//iOS has 45px for 132 dpi screen
+		public var slop:Number = Gesture.DEFAULT_SLOP << 2; //iOS has 45px for 132 dpi screen
 		public var maxTapDelay:uint = 400;
 		public var maxTapDuration:uint = 1500;
 		
@@ -76,7 +76,6 @@ package org.gestouch.gestures
 		override protected function preinit():void
 		{
 			super.preinit();
-			
 			_timer = new Timer(maxTapDelay, 1);
 			_timer.addEventListener(TimerEvent.TIMER_COMPLETE, timer_timerCompleteHandler);
 		}
@@ -133,7 +132,7 @@ package org.gestouch.gestures
 					setState(GestureState.RECOGNIZED);
 				}
 				else
-				{
+				{					
 					_timer.delay = maxTapDelay;
 					_timer.start();
 				}

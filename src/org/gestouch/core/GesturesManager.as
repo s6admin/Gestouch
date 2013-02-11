@@ -275,12 +275,14 @@ package org.gestouch.core
 			var gesturesForTouch:Vector.<Gesture> = _gesturesForTouchMap[touch] as Vector.<Gesture>;
 			var gesture:Gesture;
 			var i:uint = gesturesForTouch.length;
+			//trace("Before While "+touch.time);
 			while (i-- > 0)
 			{
 				gesture = gesturesForTouch[i];
 				
 				if (!_dirtyGesturesMap[gesture] && gesture.isTrackingTouch(touch.id))
 				{
+					//trace("GestureManager.as onTouchMove "+touch+" time: " +touch.time);
 					gesture.touchMoveHandler(touch);
 				}
 				else
@@ -289,6 +291,8 @@ package org.gestouch.core
 					gesturesForTouch.splice(i, 1);
 				}
 			}
+			//trace("After While "+touch.time);
+			//trace("");
 		}
 		
 		
